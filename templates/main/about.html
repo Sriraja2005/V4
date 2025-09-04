@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - V4 Solutions{% endblock %}
+
+{% block content %}
+<section class="team-section">
+  <h2>Meet Our Team</h2>
+  <div class="team-container">
+
+    <!-- Member 1 -->
+    <div class="team-card">
+      <div class="team-icon"><i class="fas fa-user-tie"></i></div>
+      <h3>Thrisan Dev</h3>
+      <p class="role">President / CEO</p>
+      <p class="desc">Visionary leader driving growth and innovation at V4 Solutions.</p>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <!-- Member 2 -->
+    <div class="team-card">
+      <div class="team-icon"><i class="fas fa-user-tie"></i></div>
+      <h3>Sri Raja Guru</h3>
+      <p class="role">Vice President / CTO</p>
+      <p class="desc">Tech strategist focused on building scalable, future-ready solutions.</p>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <!-- Member 3 -->
+    <div class="team-card">
+      <div class="team-icon"><i class="fas fa-user-tie"></i></div>
+      <h3>Raja Guru</h3>
+      <p class="role">Executive Vice President / CMO</p>
+      <p class="desc">Marketing and operations expert ensuring seamless execution.</p>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+    <!-- Member 4 -->
+    <div class="team-card">
+      <div class="team-icon"><i class="fas fa-user-tie"></i></div>
+      <h3>Sanjay</h3>
+      <p class="role">Associate Vice President / COO</p>
+      <p class="desc">Focused on operational excellence and delivering client success.</p>
+      <a href="https://www.linkedin.com/in/yourprofile" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .team-section {
+    padding: 3rem 5%;
+    text-align: center;
+  }
+  .team-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+  .team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .team-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .team-card:hover {
+    transform: translateY(-6px);
+  }
+  .team-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 38px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  }
+  .team-card h3 {
+    margin: 0.6rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .team-card .role {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+  .team-card .desc {
+    font-size: 0.85rem;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+  .team-card a {
+    color: #007bff;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+  .team-card a:hover {
+    color: #0056b3;
+  }
+
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    .team-section h2 {
+      font-size: 1.6rem;
+    }
+    .team-card h3 {
+      font-size: 1.75rem;
+    }
+    .team-card .role {
+      font-size: 1 rem;
+    }
+    .team-card .desc {
+      font-size: 0.8rem;
+    }
+    .team-icon {
+      width: 75px;
+      height: 75px;
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .team-section h2 {
+      font-size: 1.4rem;
+    }
+    .team-card {
+      padding: 1.5rem 1rem;
+    }
+    .team-card h3 {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<!-- FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+{% endblock %}
