@@ -7,11 +7,7 @@ from .forms import ContactForm
 
 
 def home(request):
-    """Homepage view"""
-    team_members = TeamMember.objects.all()[:3]  # Show first 3 team members
-    context = {
-        'team_members': team_members,
-    }
+    
     return render(request, 'main/home.html', context)
 
 
