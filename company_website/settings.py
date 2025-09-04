@@ -19,6 +19,7 @@ ALLOWED_HOSTS = ['v4smartsolutions.onrender.com',
                  'onrender.com',
                  'localhost'
                 ]
+CSRF_TRUSTED_ORIGINS = ["https://v4smartsolutions.onrender.com"]
 
 # Application definition
 INSTALLED_APPS = [
