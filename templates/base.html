@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}V4 Solutions - Professional Development Services{% endblock %}</title>
+    <title>{% block title %} V4 Solutions - Professional Development Services{% endblock %}</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +15,7 @@
     <!-- AOS CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
-    <!-- Tailwind Config -->
+    <!-- Tailwind config -->
     <script>
         tailwind.config = {
             theme: {
@@ -41,7 +41,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* General Styles */
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
         .card-hover {
             transition: all 0.3s ease;
         }
@@ -57,52 +59,25 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
         }
-
-        /* Splash Logo */
-        #splash-screen {
-            position: fixed;
-            inset: 0;
-            background: white;
-            display: flex;
-            align-items: flex-start; /* start from top */
-            justify-content: center;
-            z-index: 9999;
-        }
-        #splash-logo {
-            width: 150px;
-            height: 150px;
-            animation: dropRotateZoom 3s ease-in-out forwards;
-        }
-
-        @keyframes dropRotateZoom {
-            0% {
-                transform: translateY(-200px) rotate(0deg) scale(0.5);
-                opacity: 0;
-            }
-            50% {
-                transform: translateY(20px) rotate(180deg) scale(1.2);
-                opacity: 1;
-            }
-            80% {
-                transform: translateY(0px) rotate(270deg) scale(1.1);
-            }
-            100% {
-                transform: translateY(0px) rotate(360deg) scale(1);
-            }
-        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
 
-    <!-- Splash Screen -->
-    <div id="splash-screen">
-        <img src="{% static 'images/logo.png' %}" alt="V4 Solutions Logo" id="splash-logo">
-    </div>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1200,
+        once: true,
+        easing: 'ease-in-out'
+      });
+    </script>
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full top-0 z-50" data-aos="fade-down">
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="{% url 'home' %}" class="text-2xl font-bold text-primary-700">
@@ -112,10 +87,10 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <a href="{% url 'home' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Home</a>
-                    <a href="{% url 'services' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Services</a>
-                    <a href="{% url 'about' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">About</a>
-                    <a href="{% url 'contact' %}" class="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors duration-200">Contact</a>
+                    <a href="{% url 'home' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="{% url 'services' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">Services</a>
+                    <a href="{% url 'about' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="{% url 'contact' %}" class="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-700">Contact</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -128,7 +103,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 w-full bg-white shadow-lg z-40">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t w-full absolute top-16 left-0 z-40">
             <div class="flex flex-col px-4 py-4 space-y-2">
                 <a href="{% url 'home' %}" class="block text-gray-700 hover:text-primary-600">Home</a>
                 <a href="{% url 'services' %}" class="block text-gray-700 hover:text-primary-600">Services</a>
@@ -149,7 +124,7 @@
                 {% endfor %}
             </div>
         {% endif %}
-        
+
         {% block content %}
         {% endblock %}
     </main>
@@ -201,42 +176,31 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init({ duration: 1200, once: true, easing: 'ease-in-out' });
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
 
-      // Mobile menu toggle
-      document.getElementById('mobile-menu-button').addEventListener('click', function() {
-          const menu = document.getElementById('mobile-menu');
-          menu.classList.toggle('hidden');
-      });
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
 
-      // Smooth scrolling
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function(e) {
-              e.preventDefault();
-              const target = document.querySelector(this.getAttribute('href'));
-              if(target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          });
-      });
-
-      // Navbar shadow on scroll
-      window.addEventListener('scroll', function() {
-          const nav = document.querySelector('nav');
-          if(window.scrollY > 50) nav.classList.add('shadow-xl');
-          else nav.classList.remove('shadow-xl');
-      });
-
-      // Splash screen fade out
-      window.addEventListener('load', () => {
-          setTimeout(() => {
-              const splash = document.getElementById('splash-screen');
-              splash.style.transition = "opacity 1s ease";
-              splash.style.opacity = 0;
-              setTimeout(() => splash.style.display = "none", 1000);
-          }, 3000); // 3 seconds
-      });
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) nav.classList.add('shadow-xl');
+            else nav.classList.remove('shadow-xl');
+        });
     </script>
+
 </body>
 </html>
