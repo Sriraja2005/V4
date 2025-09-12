@@ -4,7 +4,7 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="bg-primary-900 text-white py-20">
+<section class="bg-primary-900 text-white py-20" data-aos="fade-down">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-5xl font-bold mb-6">Our Services</h1>
         <p class="text-xl text-gray-200 max-w-3xl mx-auto">
@@ -18,7 +18,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {% for service in services %}
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0 }}00">
                 <div class="p-8">
                     <div class="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-6">
                         {% if service.icon == 'code' %}
@@ -54,7 +54,7 @@
 </section>
 
 <!-- Process Section -->
-<section class="py-20 bg-white">
+<section class="py-20 bg-white" data-aos="fade-up">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Process</h2>
@@ -64,28 +64,28 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="text-center">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
                 <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-2xl font-bold text-primary-600">1</span>
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">Discovery</h3>
                 <p class="text-gray-600">We understand your business goals and requirements</p>
             </div>
-            <div class="text-center">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
                 <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-2xl font-bold text-primary-600">2</span>
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">Planning</h3>
                 <p class="text-gray-600">Strategic planning and technical architecture design</p>
             </div>
-            <div class="text-center">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
                 <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-2xl font-bold text-primary-600">3</span>
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 mb-2">Development</h3>
                 <p class="text-gray-600">Agile development with regular updates and feedback</p>
             </div>
-            <div class="text-center">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="400">
                 <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-2xl font-bold text-primary-600">4</span>
                 </div>
@@ -97,7 +97,8 @@
 </section>
 
 <!-- Technologies Section -->
-<section class="py-20 bg-gray-900 text-white">
+<section class="py-20 bg-gray-900 text-white" data-aos="fade-up">
+    
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold mb-4">Technologies We Use</h2>
@@ -107,30 +108,42 @@
         </div>
         
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200">
+            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200" data-aos="flip-left">
                 <i class="fab fa-react text-4xl text-blue-400 mb-2"></i>
                 <p class="text-sm">React</p>
             </div>
-            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200">
+            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200" data-aos="flip-left" data-aos-delay="100">
                 <i class="fab fa-python text-4xl text-yellow-400 mb-2"></i>
                 <p class="text-sm">Python</p>
             </div>
-            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200">
+            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200" data-aos="flip-left" data-aos-delay="200">
                 <i class="fab fa-node-js text-4xl text-green-400 mb-2"></i>
                 <p class="text-sm">Node.js</p>
             </div>
-            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200">
+            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200" data-aos="flip-left" data-aos-delay="300">
                 <i class="fab fa-aws text-4xl text-orange-400 mb-2"></i>
                 <p class="text-sm">AWS</p>
             </div>
-            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200">
+            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200" data-aos="flip-left" data-aos-delay="400">
                 <i class="fab fa-docker text-4xl text-blue-400 mb-2"></i>
                 <p class="text-sm">Docker</p>
             </div>
-            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200">
+            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200" data-aos="flip-left" data-aos-delay="500">
                 <i class="fab fa-js-square text-4xl text-yellow-400 mb-2"></i>
                 <p class="text-sm">JavaScript</p>
             </div>
+                        <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200" data-aos="flip-left" data-aos-delay="600">
+                <i class="fab fa-java text-4xl text-red-500 mb-2"></i>
+                <p class="text-sm">Java</p>
+            </div>
+
+            <!-- New: Flutter -->
+            <div class="text-center p-4 hover:bg-gray-800 rounded-lg transition-colors duration-200" data-aos="flip-left" data-aos-delay="700">
+                <i class="fas fa-mobile-alt text-4xl text-blue-500 mb-2"></i>
+                <p class="text-sm">Flutter</p>
+            </div>
+        </div>
+
         </div>
     </div>
 </section>
