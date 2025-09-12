@@ -9,7 +9,7 @@ from .forms import ContactForm
 def home(request):
     
     
-    return render(request, 'main/home.html', context)
+    return render(request, 'main/home.html')
 
 
 def services(request):
