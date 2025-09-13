@@ -8,7 +8,6 @@ from .forms import ContactForm
 
 def home(request):
     
-    
     return render(request, 'main/home.html')
 
 
@@ -168,5 +167,5 @@ Message:
 
 
 
-# ---------- Static Portfolio Pages for Each Team Member ----------
+
 
