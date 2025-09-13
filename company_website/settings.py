@@ -14,7 +14,14 @@ SECRET_KEY = 'django-insecure-your-secret-key-here'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['v4smartsolutions.onrender.com',
+                'www.v4smartsolutions.onrender.com',
+                 'onrender.com',
+                 '127.0.0.1:8000',
+                 '127.0.0.1'
+                ]
+CSRF_TRUSTED_ORIGINS = ["https://v4smartsolutions.onrender.com",
+"http://127.0.0.1:8000/"]
 
 # Application definition
 INSTALLED_APPS = [

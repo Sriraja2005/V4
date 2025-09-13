@@ -1,168 +1,225 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% block title %}V4 Solutions - Professional Development Services{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} V4 Solutions - Professional Development Services{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Font Awesome -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
-<!-- AOS CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
-<script>
-tailwind.config = {
-    theme: {
-        extend: {
-            colors: {
-                primary: {50:'#eff6ff',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',900:'#1e3a8a'}
-            },
-            fontFamily: { 'sans': ['Inter','system-ui','sans-serif'] }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
         }
-    }
-}
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-/* Splash Logo Styles */
-#splash-screen {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    background: white;
-}
-
-/* Keyframes: move down from top, swing left-right, zoom in */
-@keyframes downSwingZoom {
-  0%   { transform: translateY(-200px) rotate(-20deg) scale(0.5); opacity: 0; }
-  25%  { transform: translateY(50px) rotate(20deg) scale(1); opacity: 1; }
-  50%  { transform: translateY(0) rotate(-15deg) scale(1.2); }
-  75%  { transform: translateY(10px) rotate(10deg) scale(1.3); }
-  100% { transform: translateY(0) rotate(0deg) scale(1.4); opacity: 0; }
-}
-
-#splash-logo {
-    width: 520px;
-    height: 520px;
-    animation: downSwingZoom 4s ease-in-out forwards;
-}
-</style>
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+    </style>
 </head>
 <body class="font-sans bg-gray-50">
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1200,   // animation duration (ms)
+        once: true,       // only animate once per element
+        easing: 'ease-in-out'
+      });
+    </script>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script> AOS.init({ duration:1200, once:true, easing:'ease-in-out' }); </script>
-
-<!-- Splash Screen -->
-<div id="splash-screen">
-    <img src="{% static 'images/logo.png' %}" alt="V4 Solutions Logo" id="splash-logo">
-</div>
-
-<!-- Navigation -->
-<nav class="bg-white shadow-lg fixed w-full top-0 z-40" data-aos="fade-down">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-            <a href="{% url 'home' %}" class="text-2xl font-bold text-primary-700 flex items-center">
-                <i class="fas fa-code mr-2"></i>V4 Solutions
-            </a>
-            <div class="hidden md:flex space-x-8">
-                <a href="{% url 'home' %}" class="text-gray-700 hover:text-primary-600">Home</a>
-                <a href="{% url 'services' %}" class="text-gray-700 hover:text-primary-600">Services</a>
-                <a href="{% url 'about' %}" class="text-gray-700 hover:text-primary-600">About</a>
-                <a href="{% url 'contact' %}" class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700">Contact</a>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50" data-aos="fade-down">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="{% url 'home' %}" class="text-2xl font-bold text-primary-700">
+                        <i class="fas fa-code mr-2"></i>V4 Solutions
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="{% url 'home' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Home</a>
+                        <a href="{% url 'services' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Services</a>
+                        <a href="{% url 'projects' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Projects</a>
+                        <a href="{% url 'about' %}" class="text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-200">About</a>
+                        <a href="{% url 'contact' %}" class="bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary-700 transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary-600">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
         </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-        <a href="{% url 'home' %}" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Home</a>
-        <a href="{% url 'services' %}" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Services</a>
-        <a href="{% url 'about' %}" class="block px-3 py-2 text-gray-700 hover:text-primary-600">About</a>
-        <a href="{% url 'contact' %}" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Contact</a>
-    </div>
-</nav>
-
-<!-- Main Content -->
-<main class="pt-16" data-aos="fade-up">
-    {% if messages %}
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4" data-aos="zoom-in">
-        {% for message in messages %}
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4" role="alert">
-          {{ message }}
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t" data-aos="fade-down">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="{% url 'home' %}" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Home</a>
+                <a href="{% url 'services' %}" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Services</a>
+                <a href="{% url 'projects' %}" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Projects</a>
+                <a href="{% url 'about' %}" class="block px-3 py-2 text-gray-700 hover:text-primary-600">About</a>
+                <a href="{% url 'contact' %}" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Contact</a>
+            </div>
         </div>
-        {% endfor %}
-      </div>
-    {% endif %}
-    {% block content %}{% endblock %}
-</main>
+    </nav>
 
-<!-- Footer -->
+    <!-- Main Content -->
+    <main class="pt-16" data-aos="fade-up">
+        {% if messages %}
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4" data-aos="zoom-in">
+                {% for message in messages %}
+                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
 <footer class="bg-gray-900 text-white" data-aos="fade-up">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="col-span-1 md:col-span-2" data-aos="fade-right">
-                <h3 class="text-2xl font-bold mb-4"><i class="fas fa-code mr-2"></i>V4 Solutions</h3>
-                <p class="text-gray-300 mb-4 max-w-md">
-                    We're a team of passionate developers creating innovative solutions for businesses worldwide.
-                </p>
-            </div>
-            <div data-aos="fade-up">
-                <h4 class="text-lg font-semibold mb-4">Services</h4>
-                <ul class="space-y-2">
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-white">Software Development</a></li>
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-white">App Development</a></li>
-                    <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-white">Website Development</a></li>
-                </ul>
-            </div>
-            <div data-aos="fade-left">
-                <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                <ul class="space-y-2 text-gray-300">
-                    <li><i class="fas fa-envelope mr-2"></i>v4smartsolutions@gmail.com</li>
-                    <li><i class="fas fa-phone mr-2"></i>+91 9344998602</li>
-                    <li><i class="fas fa-map-marker-alt mr-2"></i>Trichy, India</li>
-                </ul>
-            </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- 4 Columns in one line -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <!-- About / Logo -->
+      <div data-aos="fade-right">
+        <h3 class="text-2xl font-bold mb-4">
+          <i class="fas fa-code mr-2"></i>V4 Solutions
+        </h3>
+        <p class="text-gray-300 mb-4 max-w-md">
+          We're a team of passionate developers creating innovative solutions for businesses worldwide. 
+          From software development to mobile apps and websites, we bring your ideas to life.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-white transition-colors duration-200">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
         </div>
-        <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300" data-aos="zoom-in">
-            <p>&copy; 2025 V4 Solutions. All rights reserved.</p>
-        </div>
+      </div>
+
+      <!-- Services -->
+      <div data-aos="fade-up">
+        <h4 class="text-lg font-semibold mb-4">Services</h4>
+        <ul class="space-y-2">
+          <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-white transition-colors duration-200">Software Development</a></li>
+          <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-white transition-colors duration-200">App Development</a></li>
+          <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-white transition-colors duration-200">Website Development</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="{% url 'services' %}" class="text-gray-300 hover:text-white transition-colors duration-200">Services</a></li>
+          <li><a href="{% url 'projects' %}" class="text-gray-300 hover:text-white transition-colors duration-200">Projects</a></li>
+          <li><a href="{% url 'about' %}" class="text-gray-300 hover:text-white transition-colors duration-200">About Us</a></li>
+          <li><a href="{% url 'contact' %}" class="text-gray-300 hover:text-white transition-colors duration-200">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div data-aos="fade-left">
+        <h4 class="text-lg font-semibold mb-4">Contact</h4>
+        <ul class="space-y-2 text-gray-300">
+          <li><i class="fas fa-envelope mr-2"></i>v4smartsolutions@gmail.com</li>
+          <li><i class="fas fa-phone mr-2"></i>+91 9344998602</li>
+          <li><i class="fas fa-map-marker-alt mr-2"></i>Trichy, India</li>
+        </ul>
+      </div>
+
     </div>
+
+    <!-- Bottom -->
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300" data-aos="zoom-in">
+      <p>&copy; 2025 V4 Solutions. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
 
-<script>
-// Mobile menu toggle
-document.getElementById('mobile-menu-button').addEventListener('click', function() {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-});
 
-// Navbar shadow on scroll
-window.addEventListener('scroll', function() {
-    const nav = document.querySelector('nav');
-    if(window.scrollY > 50) nav.classList.add('shadow-xl');
-    else nav.classList.remove('shadow-xl');
-});
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
 
-// Hide splash after animation
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        const splash = document.getElementById('splash-screen');
-        splash.style.transition = "opacity 1.5s ease";
-        splash.style.opacity = "0";
-        setTimeout(() => splash.style.display = "none", 1600);
-    }, 1200); // start after small delay
-});
-</script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 900, // animation duration
+            once: true,    // animate only once
+        });
+    </script>
 </body>
 </html>
