@@ -16,7 +16,7 @@
         <h3>Thrisan Dev</h3>
         <p class="role">President / CEO</p>
         <p class="desc">Visionary leader driving growth and innovation at V4 Solutions.</p>
-        <a href="https://www.linkedin.com/in/thrisan-dev-122421366?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+        <a href="https://www.linkedin.com/in/thrisan-dev-122421366" target="_blank">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -27,7 +27,7 @@
         <h3>Sri Raja Guru</h3>
         <p class="role">Executive Vice President / CTO</p>
         <p class="desc">Tech strategist focused on building scalable, future-ready solutions.</p>
-        <a href="https://www.linkedin.com/in/sri-raja-guru-m-79903a279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+        <a href="https://www.linkedin.com/in/sri-raja-guru-m-79903a279" target="_blank">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -49,7 +49,7 @@
         <h3>Sanjay</h3>
         <p class="role">Associate Vice President / COO</p>
         <p class="desc">Focused on operational excellence and delivering client success.</p>
-        <a href="https://www.linkedin.com/in/sanjay-d-687892380?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+        <a href="https://www.linkedin.com/in/sanjay-d-687892380" target="_blank">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -58,109 +58,48 @@
   </div>
 </section>
 
+<!-- Your existing styles -->
 <style>
-  body {
-    font-family: 'Inter', sans-serif;
-  }
+  body { font-family: 'Inter', sans-serif; }
+  .team-section { padding: 3rem 5%; text-align: center; }
+  .team-section h2 { font-size: 2rem; margin-bottom: 2rem; font-weight: 700; }
+  .team-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+  .team-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 2rem 1.5rem; text-align: center; transition: transform 0.3s ease; }
+  .team-card:hover { transform: translateY(-6px); }
+  .team-icon { width: 90px; height: 90px; margin: 0 auto 15px; border-radius: 50%; background: #007bff; display: flex; align-items: center; justify-content: center; color: white; font-size: 38px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
+  .team-card h3 { margin: 0.6rem 0; font-size: 1.2rem; font-weight: 600; }
+  .team-card .role { color: #555; font-size: 0.95rem; margin-bottom: 0.8rem; font-weight: 500; }
+  .team-card .desc { font-size: 0.85rem; color: #444; margin-bottom: 1rem; }
+  .team-card a { color: #007bff; font-size: 1.1rem; text-decoration: none; }
+  .team-card a:hover { color: #0056b3; }
 
-  .team-section {
-    padding: 3rem 5%;
-    text-align: center;
-  }
-  .team-section h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-  }
-  .team-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  .team-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    padding: 2rem 1.5rem;
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  .team-card:hover {
-    transform: translateY(-6px);
-  }
-  .team-icon {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    background: #007bff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 38px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  }
-  .team-card h3 {
-    margin: 0.6rem 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-  .team-card .role {
-    color: #555;
-    font-size: 0.95rem;
-    margin-bottom: 0.8rem;
-    font-weight: 500;
-  }
-  .team-card .desc {
-    font-size: 0.85rem;
-    color: #444;
-    margin-bottom: 1rem;
-  }
-  .team-card a {
-    color: #007bff;
-    font-size: 1.1rem;
-    text-decoration: none;
-  }
-  .team-card a:hover {
-    color: #0056b3;
-  }
-
-  /* Responsive Typography */
+  /* Responsive */
   @media (max-width: 768px) {
-    .team-section h2 {
-      font-size: 1.6rem;
-    }
-    .team-card h3 {
-      font-size: 1.75rem;
-    }
-    .team-card .role {
-      font-size: 1rem;
-    }
-    .team-card .desc {
-      font-size: 0.8rem;
-    }
-    .team-icon {
-      width: 75px;
-      height: 75px;
-      font-size: 30px;
-    }
+    .team-section h2 { font-size: 1.6rem; }
+    .team-card h3 { font-size: 1.75rem; }
+    .team-card .role { font-size: 1rem; }
+    .team-card .desc { font-size: 0.8rem; }
+    .team-icon { width: 75px; height: 75px; font-size: 30px; }
   }
-
   @media (max-width: 480px) {
-    .team-section h2 {
-      font-size: 1.4rem;
-    }
-    .team-card {
-      padding: 1.5rem 1rem;
-    }
-    .team-card h3 {
-      font-size: 1rem;
-    }
+    .team-section h2 { font-size: 1.4rem; }
+    .team-card { padding: 1.5rem 1rem; }
+    .team-card h3 { font-size: 1rem; }
   }
 </style>
 
-<!-- FontAwesome for icons -->
+<!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- AOS Library (Scroll Animations) -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,   // animation duration in ms
+    once: true,       // animation runs only once
+    easing: 'ease-in-out'
+  });
+</script>
 {% endblock %}
