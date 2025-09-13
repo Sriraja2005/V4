@@ -102,7 +102,7 @@ class ContactForm(forms.Form):
         required=False,
         widget=forms.TextInput(attrs={
             'class': 'w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-500 focus:outline-none',
-            'placeholder': 'Enter the Number '
+            'placeholder': 'Optional'
         })
     )
     company = forms.CharField(
@@ -155,7 +155,7 @@ Message:
 {cd['message']}
 """,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=['v4smartsolutions@gmail.com'],  # 👈 change to your email
+                recipient_list=['yourcompanyemail@example.com'],  # 👈 change to your email
                 fail_silently=False,
             )
 
@@ -165,6 +165,7 @@ Message:
         form = ContactForm()
 
     return render(request, 'main/contact.html', {'form': form})
+
 
 
 
