@@ -26,10 +26,12 @@ SECRET_KEY = 'django-insecure-+ybsrkyud1#+6_6)srqg#jj$2m(@ls#sg)lmwe1fj5cx#ulx=3
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'v4smartsolutions.onrender.com','localhost',
+    'localhost',
+    '127.0.0.1','v4smartsolutions.onrender.com',
 ]
-CSRF_TRUSTED_ORIGINS = ['http://v4smartsolutions.onrender.com','https://v4smartsolutions.onrender.com'
-]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000',
+    'http://127.0.0.1:8000',
+'http://v4smartsolutions.onrender.com', ]
 # Application definition
 
 INSTALLED_APPS = [

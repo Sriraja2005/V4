@@ -1,4 +1,4 @@
-{ % load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,24 @@
     <title>V4 Smart Solutions - Modern Digital Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
-    
+    <style>
+        .message {
+            text-align: center;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .message-success {
+            color: #4CAF50;
+        }
+        .message-error {
+            color: #f44336;
+        }
+        .messages-container {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -206,21 +223,13 @@
 </form>
 
 {% if messages %}
-<div style="margin-top: 20px;">
+<div class="messages-container">
     {% for message in messages %}
-        {% if message.tags == 'success' %}
-            <p style="color: #4CAF50; text-align: center;">{{ message }}</p>
-        {% else %}
-            <p style="color: #f44336; text-align: center;">{{ message }}</p>
-        {% endif %}
+        <p class="message {% if message.tags == 'success' %}message-success{% else %}message-error{% endif %}">
+            {{ message }}
+        </p>
     {% endfor %}
 </div>
-{% endif %}
-
-{% if messages %}
-    {% for message in messages %}
-        <p style="color:green">{{ message }}</p>
-    {% endfor %}
 {% endif %}
 
             <div class="social-links">
