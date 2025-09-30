@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V4 Smart Solutions - Modern Digital Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+<body>
+    <nav>
+        <div class="logo">V4 Smart Solutions</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+     <section id="home">
+        <div class="container">
+            <div class="hero-glass glass">
+                <h1>V4 Smart Solutions</h1>
+                <p class="tagline">Innovate. Create. Transform.</p>
+                <p class="subheadline">We build modern digital solutions for startups and businesses.</p>
+                <div class="cta-buttons">
+                    <a href="/" class="btn btn-primary">See Our Work</a>
+                    <a href="/" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+
+    
+    <section id="home">
+        <div class="container">
+            <div class="hero-glass glass">
+                <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap; text-align:center; padding:20px;">
+
+                  <!-- Member 1 -->
+
+    <div>
+        <img src="{% static 'images/founder.jpg' %}" style="width:150px; border-radius:10px;">
+        <p style="font-size:18px; font-weight:bold; margin:8px 0 4px;">Thrisan Dev</p>
+        <p style="font-size:14px; color:#ccc;">Founder</p>
+    </div>
+
+    <!-- Member 2 -->
+    <div>
+        <img src="{% static 'images/images2.jpeg' %}" style="width:150px; border-radius:10px;">
+        <p style="font-size:18px; font-weight:bold; margin:8px 0 4px;">Sri Raja Guru</p>
+        <p style="font-size:14px; color:#ccc;">Developer</p>
+    </div>
+
+    <!-- Member 3 -->
+    <div>
+        <img src="{% static 'images/images2.jpeg' %}" style="width:150px; border-radius:10px;">
+        <p style="font-size:18px; font-weight:bold; margin:8px 0 4px;">Raja Guru</p>
+        <p style="font-size:14px; color:#ccc;">Developer</p>
+    </div>
+
+    <div>
+        <img src="{% static 'images/images2.jpeg' %}" style="width:150px; border-radius:10px;">
+        <p style="font-size:18px; font-weight:bold; margin:8px 0 4px;">Sanjay</p>
+        <p style="font-size:14px; color:#ccc;">UI/UX Developer</p>
+    </div>
+
+</div>
+
+            </div>
+        </div>
+    </section>
